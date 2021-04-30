@@ -13,9 +13,9 @@ namespace MontyHallProblem2._0
             {
                 int noOfDoors = ChooseNumberOfDoors();
                 int noOfSimulations = ChooseNumberOfSimulations();
-                int changeOrKeep = ChangeOrKeepDoor();
+                bool KeepDoor = ChangeOrKeepDoor();
 
-                int winningGames = Game.MontyHallGame(noOfDoors, noOfSimulations, changeOrKeep);
+                int winningGames = Game.MontyHallGame(noOfDoors, noOfSimulations, KeepDoor);
                 var winnings = Helpers.CalculateNumberOfWinsToPercent(winningGames, noOfSimulations);
 
                 EndMessage(noOfDoors, noOfSimulations, winningGames, winnings);

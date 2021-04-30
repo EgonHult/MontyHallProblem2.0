@@ -9,7 +9,7 @@ namespace MontyHallProblem2._0
     internal class Game
     {
 
-        internal static int MontyHallGame(int noOfDoors, int noOfSimulations, int changeOrKeep)
+        internal static int MontyHallGame(int noOfDoors, int noOfSimulations, bool KeepDoor)
         {
             Random random = new Random();
             int winningGames = 0;
@@ -21,15 +21,14 @@ namespace MontyHallProblem2._0
 
                 var ChosenDoor = random.Next(0, noOfDoors);
 
-                if (changeOrKeep == 1)
+                if (KeepDoor == false)
                 {
                     if (PrizeDoor != ChosenDoor)
                     {
                         winningGames++;
                     }
                 }
-
-                if (changeOrKeep == 2)
+                else if (KeepDoor == true)
                 {
                     if (PrizeDoor == ChosenDoor)
                     {

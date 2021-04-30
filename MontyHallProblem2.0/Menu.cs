@@ -31,23 +31,31 @@ namespace MontyHallProblem2._0
             return noOfSimulations;
         }
 
-        internal static int ChangeOrKeepDoor()
+        internal static bool ChangeOrKeepDoor()
         {
             bool isRunning = true;
-            int changeOrKeep = 0;
+            bool? KeepDoor = null;
 
-            while (isRunning)
+            do
             {
                 Console.WriteLine("Choose if you whant to change or keep the door\n");
                 Console.WriteLine("[1] Change door");
                 Console.WriteLine("[2] Keep door\n");
-                int.TryParse(Console.ReadLine(), out changeOrKeep);
+                int.TryParse(Console.ReadLine(), out int changeOrKeep);
 
-                if (changeOrKeep == 1 || changeOrKeep == 2)
+                if (changeOrKeep == 1)
+                {
+                    KeepDoor = false;
                     isRunning = false;
-            }
+                }
+                else if (changeOrKeep == 2)
+                {
+                    KeepDoor = true;
+                    isRunning = false;
+                }
+            } while (isRunning);
 
-            return changeOrKeep;
+            return (bool)KeepDoor;
         }
 
         internal static void EndMessage(int noOfDoors, int noOfSimulations, int winningGames, double winnings)
